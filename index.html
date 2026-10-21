@@ -25,6 +25,9 @@
       </nav>
 
       <div class="header-actions">
+        <button class="accessibility-toggle" type="button" aria-label="Открыть настройки для слабовидящих" aria-expanded="false" aria-controls="accessibility-panel">
+          Aa
+        </button>
         <button class="icon-button search-toggle" type="button" aria-label="Открыть поиск" aria-expanded="false">
           ⌕
         </button>
@@ -69,66 +72,76 @@
       </div>
 
       <div class="layout-grid">
-        <div class="articles-grid">
-          <article class="article-card article-card-featured" id="featured">
-            <a class="article-image image-cyberpunk" href="#article" aria-label="Открыть материал о возвращении в игровые миры">
-              <span class="image-label">Лонгрид</span>
-            </a>
-            <div class="article-body">
-              <div class="article-meta">
-                <span>Мнение</span>
-                <time datetime="2026-09-22">Сегодня, 09:40</time>
-              </div>
-              <h3><a href="#article">Почему мы возвращаемся в знакомые игровые миры</a></h3>
-              <p>Ностальгия — лишь часть ответа. Ищем настоящие причины нашей привязанности.</p>
-              <a class="read-more" href="#article">Читать <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
+        <div>
+          <div class="article-filters" aria-label="Фильтры статей">
+            <button class="filter-chip is-active" type="button" data-filter="all">Все</button>
+            <button class="filter-chip" type="button" data-filter="opinion">Мнение</button>
+            <button class="filter-chip" type="button" data-filter="reviews">Обзоры</button>
+            <button class="filter-chip" type="button" data-filter="games">Игры</button>
+            <button class="filter-chip" type="button" data-filter="people">Люди</button>
+          </div>
 
-          <article class="article-card">
-            <a class="article-image image-rpg" href="#article" aria-label="Открыть обзор игры">
-              <span class="image-label">Обзор</span>
-            </a>
-            <div class="article-body">
-              <div class="article-meta">
-                <span>PC</span>
-                <time datetime="2026-09-21">Вчера, 18:20</time>
+          <div class="articles-grid">
+            <article class="article-card article-card-featured" id="featured" data-category="opinion" data-tags="мнение лонгрид">
+              <a class="article-image image-cyberpunk" href="#article" aria-label="Открыть материал о возвращении в игровые миры">
+                <span class="image-label">Лонгрид</span>
+              </a>
+              <div class="article-body">
+                <div class="article-meta">
+                  <span>Мнение</span>
+                  <time datetime="2026-09-22">Сегодня, 09:40</time>
+                </div>
+                <h3><a href="#article">Почему мы возвращаемся в знакомые игровые миры</a></h3>
+                <p>Ностальгия — лишь часть ответа. Ищем настоящие причины нашей привязанности.</p>
+                <a class="read-more" href="#article">Читать <span aria-hidden="true">↗</span></a>
               </div>
-              <h3><a href="#article">Dust &amp; Signal: тишина после бури</a></h3>
-              <p>Медленное приключение с большим сердцем и пыльными дорогами.</p>
-              <a class="read-more" href="#article">Читать <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
+            </article>
 
-          <article class="article-card">
-            <a class="article-image image-sci-fi" href="#article" aria-label="Открыть подборку игр">
-              <span class="image-label">Подборка</span>
-            </a>
-            <div class="article-body">
-              <div class="article-meta">
-                <span>Игры</span>
-                <time datetime="2026-09-20">20 сентября</time>
+            <article class="article-card" data-category="reviews" data-tags="pc обзор">
+              <a class="article-image image-rpg" href="#article" aria-label="Открыть обзор игры">
+                <span class="image-label">Обзор</span>
+              </a>
+              <div class="article-body">
+                <div class="article-meta">
+                  <span>PC</span>
+                  <time datetime="2026-09-21">Вчера, 18:20</time>
+                </div>
+                <h3><a href="#article">Dust &amp; Signal: тишина после бури</a></h3>
+                <p>Медленное приключение с большим сердцем и пыльными дорогами.</p>
+                <a class="read-more" href="#article">Читать <span aria-hidden="true">↗</span></a>
               </div>
-              <h3><a href="#article">7 игр, где исследование важнее победы</a></h3>
-              <p>Для тех, кто любит заблудиться и найти что-то настоящее.</p>
-              <a class="read-more" href="#article">Читать <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
+            </article>
 
-          <article class="article-card">
-            <a class="article-image image-action" href="#article" aria-label="Открыть материал о разработчиках">
-              <span class="image-label">Интервью</span>
-            </a>
-            <div class="article-body">
-              <div class="article-meta">
-                <span>Люди</span>
-                <time datetime="2026-09-19">19 сентября</time>
+            <article class="article-card" data-category="games" data-tags="игры подборка">
+              <a class="article-image image-sci-fi" href="#article" aria-label="Открыть подборку игр">
+                <span class="image-label">Подборка</span>
+              </a>
+              <div class="article-body">
+                <div class="article-meta">
+                  <span>Игры</span>
+                  <time datetime="2026-09-20">20 сентября</time>
+                </div>
+                <h3><a href="#article">7 игр, где исследование важнее победы</a></h3>
+                <p>Для тех, кто любит заблудиться и найти что-то настоящее.</p>
+                <a class="read-more" href="#article">Читать <span aria-hidden="true">↗</span></a>
               </div>
-              <h3><a href="#article">Как маленькая команда создала большой мир</a></h3>
-              <p>Разговор о смелых решениях, которые видны на каждом экране.</p>
-              <a class="read-more" href="#article">Читать <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
+            </article>
+
+            <article class="article-card" data-category="people" data-tags="люди интервью">
+              <a class="article-image image-action" href="#article" aria-label="Открыть материал о разработчиках">
+                <span class="image-label">Интервью</span>
+              </a>
+              <div class="article-body">
+                <div class="article-meta">
+                  <span>Люди</span>
+                  <time datetime="2026-09-19">19 сентября</time>
+                </div>
+                <h3><a href="#article">Как маленькая команда создала большой мир</a></h3>
+                <p>Разговор о смелых решениях, которые видны на каждом экране.</p>
+                <a class="read-more" href="#article">Читать <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+          </div>
         </div>
 
         <aside class="sidebar" aria-label="Дополнительная информация">
@@ -175,9 +188,12 @@
       <span>checkpoint<span class="brand-dot">.</span></span>
     </a>
     <p>Медиа о компьютерных играх и людях, которые их создают.</p>
-    <div class="footer-links">
-      <a href="price.html">Услуги</a>
-      <a href="about.html">Контакты</a>
+    <div class="footer-actions">
+      <button class="button button-dark print-button" type="button">Версия для печати</button>
+      <div class="footer-links">
+        <a href="price.html">Услуги</a>
+        <a href="about.html">Контакты</a>
+      </div>
     </div>
   </footer>
   <script src="script.js"></script>
