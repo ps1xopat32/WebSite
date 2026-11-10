@@ -73,71 +73,108 @@
 
       <div class="layout-grid">
         <div>
-          <div class="article-filters" aria-label="Фильтры статей">
-            <button class="filter-chip is-active" type="button" data-filter="all">Все</button>
-            <button class="filter-chip" type="button" data-filter="opinion">Мнение</button>
-            <button class="filter-chip" type="button" data-filter="reviews">Обзоры</button>
-            <button class="filter-chip" type="button" data-filter="games">Игры</button>
-            <button class="filter-chip" type="button" data-filter="people">Люди</button>
+          <div class="article-tools">
+            <div class="article-filters" aria-label="Фильтры статей">
+              <button class="filter-chip is-active" type="button" data-filter="all">Все</button>
+              <button class="filter-chip" type="button" data-filter="opinion">Мнение</button>
+              <button class="filter-chip" type="button" data-filter="reviews">Обзоры</button>
+              <button class="filter-chip" type="button" data-filter="games">Игры</button>
+              <button class="filter-chip" type="button" data-filter="people">Люди</button>
+            </div>
+
+            <div class="smart-filters" aria-label="Умный фильтр материалов">
+              <label class="filter-field">
+                <span>Популярность</span>
+                <select id="popularity-filter">
+                  <option value="all">Любая</option>
+                  <option value="high">Высокая</option>
+                  <option value="medium">Средняя</option>
+                  <option value="low">Низкая</option>
+                </select>
+              </label>
+
+              <label class="filter-field">
+                <span>Дата выхода</span>
+                <select id="date-filter">
+                  <option value="all">Любая дата</option>
+                  <option value="30">За 30 дней</option>
+                  <option value="90">За 90 дней</option>
+                  <option value="365">За год</option>
+                </select>
+              </label>
+            </div>
           </div>
 
           <div class="articles-grid">
-            <article class="article-card article-card-featured" id="featured" data-category="opinion" data-tags="мнение лонгрид">
+            <p class="no-results" id="no-results" hidden>По текущим фильтрам ничего не найдено. Попробуйте выбрать другие параметры.</p>
+            <article class="article-card article-card-featured" id="featured" data-category="opinion" data-tags="мнение лонгрид" data-views="320000" data-date="2026-11-01">
               <a class="article-image image-cyberpunk" href="#article" aria-label="Открыть материал о возвращении в игровые миры">
                 <span class="image-label">Лонгрид</span>
               </a>
               <div class="article-body">
                 <div class="article-meta">
                   <span>Мнение</span>
-                  <time datetime="2026-09-22">Сегодня, 09:40</time>
+                  <time datetime="2026-11-01">1 ноября</time>
                 </div>
                 <h3><a href="#article">Почему мы возвращаемся в знакомые игровые миры</a></h3>
                 <p>Ностальгия — лишь часть ответа. Ищем настоящие причины нашей привязанности.</p>
+                <div class="article-stats">
+                  <span>320 тыс. просмотров</span>
+                </div>
                 <a class="read-more" href="#article">Читать <span aria-hidden="true">↗</span></a>
               </div>
             </article>
 
-            <article class="article-card" data-category="reviews" data-tags="pc обзор">
+            <article class="article-card" data-category="reviews" data-tags="pc обзор" data-views="115000" data-date="2026-10-15">
               <a class="article-image image-rpg" href="#article" aria-label="Открыть обзор игры">
                 <span class="image-label">Обзор</span>
               </a>
               <div class="article-body">
                 <div class="article-meta">
                   <span>PC</span>
-                  <time datetime="2026-09-21">Вчера, 18:20</time>
+                  <time datetime="2026-10-15">15 октября</time>
                 </div>
                 <h3><a href="#article">Dust &amp; Signal: тишина после бури</a></h3>
                 <p>Медленное приключение с большим сердцем и пыльными дорогами.</p>
+                <div class="article-stats">
+                  <span>115 тыс. просмотров</span>
+                </div>
                 <a class="read-more" href="#article">Читать <span aria-hidden="true">↗</span></a>
               </div>
             </article>
 
-            <article class="article-card" data-category="games" data-tags="игры подборка">
+            <article class="article-card" data-category="games" data-tags="игры подборка" data-views="210000" data-date="2026-09-24">
               <a class="article-image image-sci-fi" href="#article" aria-label="Открыть подборку игр">
                 <span class="image-label">Подборка</span>
               </a>
               <div class="article-body">
                 <div class="article-meta">
                   <span>Игры</span>
-                  <time datetime="2026-09-20">20 сентября</time>
+                  <time datetime="2026-09-24">24 сентября</time>
                 </div>
                 <h3><a href="#article">7 игр, где исследование важнее победы</a></h3>
                 <p>Для тех, кто любит заблудиться и найти что-то настоящее.</p>
+                <div class="article-stats">
+                  <span>210 тыс. просмотров</span>
+                </div>
                 <a class="read-more" href="#article">Читать <span aria-hidden="true">↗</span></a>
               </div>
             </article>
 
-            <article class="article-card" data-category="people" data-tags="люди интервью">
+            <article class="article-card" data-category="people" data-tags="люди интервью" data-views="54000" data-date="2026-08-20">
               <a class="article-image image-action" href="#article" aria-label="Открыть материал о разработчиках">
                 <span class="image-label">Интервью</span>
               </a>
               <div class="article-body">
                 <div class="article-meta">
                   <span>Люди</span>
-                  <time datetime="2026-09-19">19 сентября</time>
+                  <time datetime="2026-08-20">20 августа</time>
                 </div>
                 <h3><a href="#article">Как маленькая команда создала большой мир</a></h3>
                 <p>Разговор о смелых решениях, которые видны на каждом экране.</p>
+                <div class="article-stats">
+                  <span>54 тыс. просмотров</span>
+                </div>
                 <a class="read-more" href="#article">Читать <span aria-hidden="true">↗</span></a>
               </div>
             </article>

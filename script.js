@@ -160,17 +160,73 @@ document.querySelector('.search-bar')?.addEventListener('submit', (event) => {
   }
 });
 
+const popularityFilter = document.querySelector('#popularity-filter');
+const dateFilter = document.querySelector('#date-filter');
+const noResultsMessage = document.querySelector('#no-results');
+
+const filterState = {
+  category: 'all',
+  popularity: 'all',
+  date: 'all'
+};
+
+const getPopularityBucket = (views) => {
+  const popularity = Number(views) || 0;
+
+  if (popularity >= 150000) return 'high';
+  if (popularity >= 70000) return 'medium';
+  return 'low';
+};
+
+const matchesSelectedDate = (card, selectedDateRange) => {
+  if (selectedDateRange === 'all') return true;
+
+  const maxDays = Number(selectedDateRange);
+  if (!Number.isFinite(maxDays)) return true;
+
+  const publishedDate = new Date(card.dataset.date);
+  if (Number.isNaN(publishedDate.getTime())) return false;
+
+  const msInDay = 24 * 60 * 60 * 1000;
+  const ageInDays = (Date.now() - publishedDate.getTime()) / msInDay;
+
+  return ageInDays <= maxDays;
+};
+
+const updateArticleVisibility = () => {
+  let visibleCount = 0;
+
+  articleCards.forEach((card) => {
+    const matchesCategory = filterState.category === 'all' || card.dataset.category === filterState.category;
+    const matchesPopularity = filterState.popularity === 'all' || getPopularityBucket(card.dataset.views) === filterState.popularity;
+    const matchesDate = matchesSelectedDate(card, filterState.date);
+    const isVisible = matchesCategory && matchesPopularity && matchesDate;
+
+    card.classList.toggle('is-hidden', !isVisible);
+
+    if (isVisible) visibleCount += 1;
+  });
+
+  if (noResultsMessage) noResultsMessage.hidden = visibleCount !== 0;
+};
+
 filterChips.forEach((chip) => {
   chip.addEventListener('click', () => {
-    const selectedFilter = chip.dataset.filter;
+    filterState.category = chip.dataset.filter;
 
     filterChips.forEach((item) => item.classList.toggle('is-active', item === chip));
-
-    articleCards.forEach((card) => {
-      const matches = selectedFilter === 'all' || card.dataset.category === selectedFilter;
-      card.classList.toggle('is-hidden', !matches);
-    });
+    updateArticleVisibility();
   });
+});
+
+popularityFilter?.addEventListener('change', (event) => {
+  filterState.popularity = event.target.value;
+  updateArticleVisibility();
+});
+
+dateFilter?.addEventListener('change', (event) => {
+  filterState.date = event.target.value;
+  updateArticleVisibility();
 });
 
 const printButton = document.querySelector('.print-button');
